@@ -1,13 +1,79 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #1e1e1e;
+  font-size: 10px;
 }
+body header h1 {
+  color: #fff;
+  margin-bottom: 5vh;
+  font-size: 2rem;
+  margin: 2vh 0 0 5vw;
+}
+body main {
+  margin: 5vh 0 0 15vw;
+}
+body main .add-container {
+  display: flex;
+}
+body main .add-container input {
+  width: 35vw;
+  padding: 15px;
+  background-color: #25273c;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px 0 0 10px;
+  border: none;
+}
+body main .add-container button {
+  width: 5vw;
+  background: rgba(90, 255, 49, 0.6);
+  border-radius: 0 10px 10px 0;
+  border: none;
+}
+body main .add-container button img {
+  width: 3vw;
+}
+body main .todo-list {
+  width: 40vw;
+  background-color: #25273c;
+  margin-top: 2vh;
+}
+body main .todo-list ul {
+  gap: 10px;
+}
+body main .todo-list ul li {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+body main .todo-list ul li input {
+  width: 20px;
+  height: 20px;
+  margin-right: 2vw;
+}
+body .result {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+  border-color: #25273c;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px;
+  letter-spacing: 1px;
+  background-color: #25273c;
+  border: 1px solid #ad02fe;
+}
+body .result .items-box {
+  display: flex;
+  gap: 1vw;
+}
+
+/*# sourceMappingURL=index.css.map */
