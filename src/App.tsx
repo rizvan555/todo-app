@@ -7,7 +7,7 @@ function App() {
       id: 1,
       type: 'radio',
       nameTodo: 'todo-list',
-      contain: ' Create a new todo...',
+      contain: ' Create project design',
     },
     {
       id: 2,
@@ -35,6 +35,12 @@ function App() {
     },
   ]);
   const [todo, setTodo] = useState('');
+  const [addCount, setAddCount] = useState(5);
+
+  const deleteTodos = () => {
+    const newTodoList = todoList.filter((todo) => !todo);
+    setTodoList(newTodoList);
+  };
 
   const addTodo: any = () => {
     if (todo !== '') {
@@ -45,8 +51,10 @@ function App() {
         contain: todo,
       };
       setTodoList([...todoList, newTodo]);
+      setAddCount(addCount + 1);
     }
   };
+
   const handleTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTodo(event.target.value);
   };
@@ -87,11 +95,17 @@ function App() {
         </div>
         <div className="result">
           <div className="items-box">
-            <p>5</p>
+            <p>{addCount}</p>
             <span>Items</span>
           </div>
           <div className="order-box">
-            <p>Clear Complete</p>
+            <p
+              onClick={() => {
+                deleteTodos();
+              }}
+            >
+              Clear Complete
+            </p>
           </div>
         </div>
       </main>

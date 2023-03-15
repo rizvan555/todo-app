@@ -22,11 +22,14 @@ body main .add-container {
 }
 body main .add-container input {
   width: 35vw;
-  padding: 15px;
+  padding: 20px;
   background-color: #25273c;
   color: rgba(255, 255, 255, 0.7);
   border-radius: 10px 0 0 10px;
   border: none;
+}
+body main .add-container input::placeholder {
+  font-size: 1.2rem;
 }
 body main .add-container button {
   width: 5vw;
@@ -35,7 +38,7 @@ body main .add-container button {
   border: none;
 }
 body main .add-container button img {
-  width: 3vw;
+  width: 2vw;
 }
 body main .todo-list {
   width: 40vw;
@@ -65,8 +68,8 @@ body .result {
   width: 40vw;
   border-color: #25273c;
   color: #fff;
-  font-size: 1rem;
-  padding: 10px;
+  font-size: 1.5rem;
+  padding: 20px;
   letter-spacing: 1px;
   background-color: #25273c;
   border: 1px solid #ad02fe;
@@ -74,6 +77,10 @@ body .result {
 body .result .items-box {
   display: flex;
   gap: 1vw;
+}
+body .result .items-box p {
+  color: #ff0000;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.css.map */
