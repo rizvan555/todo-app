@@ -16,6 +16,7 @@ body header h1 {
 }
 body main {
   margin: 5vh 0 0 15vw;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body main .add-container {
   display: flex;
@@ -29,7 +30,7 @@ body main .add-container input {
   border: none;
 }
 body main .add-container input::placeholder {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 body main .add-container button {
   width: 5vw;
@@ -53,10 +54,14 @@ body main .todo-list ul li {
   align-items: center;
   padding: 20px;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 2px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
+.completed {
+  text-decoration: line-through #e9e9e9;
+}
+
 body main .todo-list ul li input {
   width: 20px;
   height: 20px;
@@ -68,7 +73,7 @@ body .result {
   width: 40vw;
   border-color: #25273c;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 20px;
   letter-spacing: 1px;
   background-color: #25273c;

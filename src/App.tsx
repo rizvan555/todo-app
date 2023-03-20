@@ -6,39 +6,40 @@ function App() {
     {
       id: 1,
       type: 'radio',
-      nameTodo: 'todo-list',
       contain: ' Create project design',
+      completed: true,
     },
     {
       id: 2,
       type: 'radio',
-      nameTodo: 'todo-list',
       contain: ' Complete React project',
+      completed: false,
     },
     {
       id: 3,
       type: 'radio',
-      nameTodo: 'todo-list',
       contain: ' Submit project',
+      completed: false,
     },
     {
       id: 4,
       type: 'radio',
-      nameTodo: 'todo-list',
       contain: 'Read for 1 hour',
+      completed: false,
     },
     {
       id: 5,
       type: 'radio',
-      nameTodo: 'todo-list',
       contain: ' Pick up groceries',
+      completed: false,
     },
   ]);
+
   const [todo, setTodo] = useState('');
   const [addCount, setAddCount] = useState(5);
 
   const deleteTodos = () => {
-    const newTodoList = todoList.filter((todo) => !todo);
+    const newTodoList = todoList.filter((todo) => !todo.completed);
     setTodoList(newTodoList);
   };
 
@@ -49,6 +50,7 @@ function App() {
         type: 'radio',
         nameTodo: 'todo-list',
         contain: todo,
+        completed: false,
       };
       setTodoList([...todoList, newTodo]);
       setAddCount(addCount + 1);
@@ -57,6 +59,17 @@ function App() {
 
   const handleTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTodo(event.target.value);
+  };
+
+  const handleClickInput = (id: any) => {
+    const newTodoList = todoList.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed };
+      } else {
+        return todo;
+      }
+    });
+    setTodoList(newTodoList);
   };
 
   return (
@@ -86,8 +99,13 @@ function App() {
         <div className="todo-list">
           <ul>
             {todoList.map((todo) => (
-              <li key={todo.id}>
-                <input type={todo.type} name={todo.nameTodo} />
+              <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+                <input
+                  type={todo.type}
+                  onClick={() => {
+                    handleClickInput(todo.id);
+                  }}
+                />
                 {todo.contain}
               </li>
             ))}
