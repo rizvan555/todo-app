@@ -7,7 +7,7 @@ function App() {
       id: 1,
       type: 'radio',
       contain: ' Create project design',
-      completed: true,
+      completed: false,
     },
     {
       id: 2,
@@ -38,11 +38,6 @@ function App() {
   const [todo, setTodo] = useState('');
   const [addCount, setAddCount] = useState<number>(5);
 
-  const deleteTodos = () => {
-    const newTodoList = todoList.filter((todo) => !todo.completed);
-    setTodoList(newTodoList);
-  };
-
   const addTodo: any = () => {
     if (todo !== '') {
       const newTodo = {
@@ -54,6 +49,7 @@ function App() {
       };
       setTodoList([...todoList, newTodo]);
       setAddCount(addCount + 1);
+      setTodo(''); // inputun icine deger yazib elave etdigin zaman, inputun silinib bosalmasi ucun asagidaki "value={todo}" ile birge bu da elave edilir.
     }
   };
 
@@ -62,15 +58,20 @@ function App() {
   };
 
   const handleClickInput = (id: any) => {
-    const newTodoList = todoList.map((todo) => {
+    const newTodoListMap = todoList.map((todo) => {
       if (todo.id === id) {
         return { ...todo, completed: !todo.completed };
       } else {
         return todo;
       }
     });
-    setTodoList(newTodoList);
-    setAddCount(addCount - 1);
+    setTodoList(newTodoListMap);
+  };
+
+  const clearCompleteButton = () => {
+    const newTodoListFilter = todoList.filter((todo) => todo.completed).length;
+    setTodoList(todoList.filter((todo) => !todo.completed));
+    setAddCount(addCount - newTodoListFilter);
   };
 
   return (
@@ -88,11 +89,17 @@ function App() {
         >
           <input
             type="text"
+            value={todo} // inputun icine deger yazib elave etdigin zaman, inputun silinib bosalmasi ucun yuxaridaki "setTodo("") ile birge bu da elave edilir.
             placeholder="Create a new todo..."
             id="add-todo"
             onChange={handleTodoChange}
           />
-          <button onClick={() => addTodo()}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              addTodo();
+            }}
+          >
             <img src={Arrow} alt="arrow-icon" />
           </button>
         </form>
@@ -120,7 +127,7 @@ function App() {
           <div className="order-box">
             <p
               onClick={() => {
-                deleteTodos();
+                clearCompleteButton();
               }}
             >
               Clear Complete
@@ -133,3 +140,4 @@ function App() {
 }
 
 export default App;
+
