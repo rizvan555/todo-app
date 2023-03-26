@@ -66,6 +66,7 @@ body {
             width: 20px;
             height: 20px;
             margin-right: 2vw;
+            cursor: pointer;
           }
         }
       }
@@ -85,11 +86,15 @@ body {
 
     .items-box {
       display: flex;
+
       gap: 1vw;
       p {
         color: #ff0000;
         font-weight: 600;
       }
+    }
+    .order-box p {
+      cursor: pointer;
     }
   }
 }

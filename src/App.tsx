@@ -36,7 +36,7 @@ function App() {
   ]);
 
   const [todo, setTodo] = useState('');
-  const [addCount, setAddCount] = useState(5);
+  const [addCount, setAddCount] = useState<number>(5);
 
   const deleteTodos = () => {
     const newTodoList = todoList.filter((todo) => !todo.completed);
@@ -70,6 +70,7 @@ function App() {
       }
     });
     setTodoList(newTodoList);
+    setAddCount(addCount - 1);
   };
 
   return (
