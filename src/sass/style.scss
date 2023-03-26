@@ -26,13 +26,13 @@ body {
         border-radius: 10px 0 0 10px;
         border: none;
         &::placeholder {
-          font-size: 1rem;
+          font-size: 1.1rem;
         }
       }
       button {
-        width: 5vw;
+        width: 6vw;
         background: rgba(90, 255, 49, 0.6);
-        border-radius: 0 10px 10px 0;
+        border-radius: 0 11px 11px 0;
         border: none;
 
         img {
